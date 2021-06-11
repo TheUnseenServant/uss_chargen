@@ -1,9 +1,42 @@
 <!DOCTYPE HTML>
+<link rel="stylesheet" href="usschargen.css">
 <HTML>
-	<H1>
-	<link rel="stylesheet" href="usschargen.css">
-	Unseenservant Character Generator
-	</H1>
 	<BODY>
+	<H1> Unseen Servant Character Generator </H1>
+
+  <form action="index.php" method="POST">
+ 
+  <h3>Class</h3> 
+  <input type="radio" id="cleric" name="class" value="cleric">
+  <label for="cleric">Cleric</label><br>
+  <input type="radio" id="fighter" name="class" value="fighter">
+  <label for="fighter">Fighter</label><br>
+  <input type="radio" id="ranger" name="class" value="ranger">
+  <label for="ranger">Ranger</label><br>
+  <input type="radio" id="paladin" name="class" value="paladin">
+  <label for="paladin">Paladin</label><br>
+  <input type="radio" id="magicuser" name="class" value="magicuser">
+  <label for="magicuser">Magic User</label><br>
+  <input type="radio" id="thief" name="class" value="thief">
+  <label for="thief">Thief</label><br>
+  
+  <h3>Gender</h3> 
+  <input type="radio" id="male" name="gender" value="male">
+  <label for="male">Male</label><br>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Female</label><br>
+
+  <h3>Alignment</h3>
+  <input type="radio" id="lg" name="alignment" value="lg">
+  <label for="lg">Lawful Good</label><br>
+  <input type="radio" id="ce" name="alignment" value="ce">
+  <label for="ce">Chaotic Evil</label><br>
+
+
+
+  <br>
+  <input type="submit" value="Create!">
+  
+  </form>
 	</BODY>
 </HTML>

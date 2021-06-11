@@ -1,5 +1,8 @@
 html { 
+  /*
   background: url(background3.jpg) no-repeat center center fixed; 
+  */
+  background: url(images/parchment.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -14,11 +17,21 @@ h1 {
   font-family: Papyrus;
   font-size: 40px;
   font-style: Bold;
-  color: #FFFFC2;
+  /*color: #FFFFC2;*/
+  color: #383B3E;
   text-align: center;
   background-color: transparent;
 }
 
+h2 {
+  font-family: Papyrus;
+  font-size: 30px;
+  font-style: Bold;
+  /*color: #FFFFC2;*/
+  color: #383B3E;
+  text-align: center;
+  background-color: transparent;
+}
 p {
   font-family: Veranda;
   font-size: 30px;
