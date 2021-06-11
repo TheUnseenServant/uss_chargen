@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="usschargen.css">
 <html>
 <body>
-<img src="images/background3.jpg">
+<!-- <img src="images/background3.jpg"> -->
 
 <?php
   require 'prefs.php';
