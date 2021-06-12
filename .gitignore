@@ -1,2 +1,3 @@
 phpunit
 tmp/*
+.phpunit.result.cache
