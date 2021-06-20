@@ -10,10 +10,10 @@
 //  1. Run via CLI:   php vilage.php
 //
 
-require 'prefs.php';
-require 'mins.php';
-require 'character.php';
-require 'names.php';
+require '../lib/prefs.php';
+require '../lib/mins.php';
+require '../lib/character.php';
+require '../lib/names.php';
 
 // Main
 $mode = 'short';
