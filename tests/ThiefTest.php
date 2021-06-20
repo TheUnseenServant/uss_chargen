@@ -2,9 +2,9 @@
 
 // ThiefTest.php
 
-require dirname(__DIR__) . '/lib/character.php';
-require dirname(__DIR__) . '/lib/prefs.php';
-require dirname(__DIR__) . '/lib/mins.php';
+require_once dirname(__DIR__) . '/lib/character.php';
+require_once dirname(__DIR__) . '/lib/prefs.php';
+require_once dirname(__DIR__) . '/lib/mins.php';
 
 use PHPUnit\Framework\TestCase;
 
@@ -53,7 +53,7 @@ final class ThiefTest extends TestCase
     $gender     = 'female';
     $character  = new Character($class, $prefs, $mins, $race, $gender, $name);
     
-    $this->assertGreaterThan(6,   $character->stats['Strength'], "6 is greater than 5");
+    $this->assertGreaterThan(6,   $character->stats['Strength']);
     $this->assertGreaterThan(6,   $character->stats['Intelligence']);
     $this->assertGreaterThan(3,   $character->stats['Wisdom']);
     $this->assertGreaterThan(9,   $character->stats['Dexterity']);
