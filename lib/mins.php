@@ -1,19 +1,20 @@
 <?php
   // Class minimum stats.
-  // Arrange highest required to lowest. Down the road we'll get rid of prefs.php and use this array's keys.
+  // Arrange highest required to lowest.
+
   $mins = array(
-    "cleric"    => array("Wisdom" => 9, "Strength" => 6, "Intelligence" => 6, "Charisma" => 6, "Constitution" => 6, "Dexterity" => 3),
-    "druid"    => array("Charisma" => 15, "Wisdom" => 12, "Intelligence" => 6, "Strength" => 6, "Constitution" => 6, "Dexterity" => 6),
+    "cleric"    => array("wisdom" => 9, "strength" => 6, "intelligence" => 6, "charisma" => 6, "constitution" => 6, "dexterity" => 3),
+    "druid"    => array("charisma" => 15, "wisdom" => 12, "intelligence" => 6, "strength" => 6, "constitution" => 6, "dexterity" => 6),
 
 
-    "fighter"   => array("Strength" => 9, "Constitution" => 7, "Wisdom" => 6, "Dexterity" => 6, "Charisma" => 6, "Intelligence" => 3),
-    "paladin"   => array("Charisma" => 17, "Wisdom" => 13, "Strength" => 12, "Intelligence" => 9, "Constitution" => 9, "Dexterity" => 6),
-    "ranger"   => array("Wisdom" => 14, "Constitution" => 14, "Strength" => 13, "Intelligence" => 13, "Dexterity" => 6, "Charisma" => 6),
+    "fighter"   => array("strength" => 9, "constitution" => 7, "wisdom" => 6, "dexterity" => 6, "charisma" => 6, "intelligence" => 3),
+    "paladin"   => array("charisma" => 17, "wisdom" => 13, "strength" => 12, "intelligence" => 9, "constitution" => 9, "dexterity" => 6),
+    "ranger"   => array("wisdom" => 14, "constitution" => 14, "strength" => 13, "intelligence" => 13, "dexterity" => 6, "charisma" => 6),
 
-    "magicuser"    => array("Intelligence" => 9, "Wisdom" => 6, "Strength" => 6, "Charisma" => 6, "Dexterity" => 6, "Constitution" => 6),
-    "illusionist"    => array("Dexterity" => 16, "Intelligence" => 15, "Strength" => 6, "Wisdom" => 6, "Charisma" => 6, "Constitution" => 3),
+    "magicuser"    => array("intelligence" => 9, "wisdom" => 6, "strength" => 6, "charisma" => 6, "dexterity" => 6, "constitution" => 6),
+    "illusionist"    => array("dexterity" => 16, "intelligence" => 15, "strength" => 6, "wisdom" => 6, "charisma" => 6, "constitution" => 3),
 
-    "thief"   => array("Dexterity" => 9, "Strength" => 6, "Intelligence" => 6, "Constitution" => 6, "Charisma" => 6, "Wisdom" => 3),
-    "assassin"   => array("Dexterity" => 12, "Strength" => 12, "Intelligence" => 11, "Constitution" => 6, "Wisdom" => 6),
+    "thief"   => array("dexterity" => 9, "strength" => 6, "intelligence" => 6, "constitution" => 6, "charisma" => 6, "wisdom" => 3),
+    "assassin"   => array("dexterity" => 12, "strength" => 12, "intelligence" => 11, "constitution" => 6, "wisdom" => 6),
   );
 ?>

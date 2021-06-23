@@ -11,9 +11,8 @@
 
 class Character {
 
-  function __construct($class, $prefs, $mins, $race, $gender, $name){
+  function __construct($class, $mins, $race, $gender, $name){
     $this->class  = $class;
-    $this->prefs  = $prefs;
     $this->mins   = $mins;
     $this->race   = $race;
     $this->gender = $gender;
@@ -24,8 +23,8 @@ class Character {
     $this->finish_stat_assignment();
   }
 
-  var $stats = array("Strength" => 0, "Intelligence" => 0, "Wisdom" => 0,
-    "Dexterity" => 0, "Constitution" => 0, "Charisma" => 0);
+  var $stats = array("strength" => 0, "intelligence" => 0, "wisdom" => 0,
+    "dexterity" => 0, "constitution" => 0, "charisma" => 0);
   var $rolls;
   var $class;
 
@@ -53,7 +52,7 @@ class Character {
     $_gender  = ucfirst($this->gender); 
     echo "$this->name, $_race $_gender $_class $newline"; 
     foreach ( $this->stats as $s => $s_value ){
-      echo $s . ":  " . $s_value . $spacer;
+      echo ucfirst($s) . ":  " . $s_value . $spacer;
     }
     echo $newline;
   }
@@ -62,10 +61,53 @@ class Character {
     // Character classes have preferred stats. The prefs array lists them in
     //  order of preference, and the array_pop takes the last (highest) 
     //  value and assigns it.
-    if ( isset($this->prefs[$this->class])){
-      foreach ( $this->prefs[$this->class] as $p ){
-        $this->stats[$p] = array_pop($this->rolls);
+
+    // Skip out if using a class not defined in mins.php.
+    if ( ! isset($this->mins[$this->class] )){
+      return;
+    }
+
+    // $prefs are the preferred stats, in descending order of preference.
+    $prefs        = array();
+    // $prefs_groups are the groups of stats that have the same minimum.
+    $prefs_groups = array();
+
+    // Look through all minimums.
+    foreach ( $this->mins[$this->class] as $m => $m_value ){
+      // Converting the number to a string, as PHP chokes on numeric hash keys.
+      $m_value_str = strval($m_value);
+      // Make the value an array, if it doesn't exist.
+      if ( ! isset( $prefs_groups[$m_value_str] )){
+        $prefs_groups[$m_value_str] = [];
       }
+      // Push the stat onto the array.
+      array_push($prefs_groups[$m_value_str], $m);
+    }
+    
+    $prefs_keys = array_keys($prefs_groups);
+
+    // Go highest to lowest
+    rsort($prefs_keys);
+    foreach ( $prefs_keys as $k ){
+
+      // If several stats have the same minumum, shuffle the list.
+      if ( count($prefs_groups[$k]) > 1 ){
+        shuffle($prefs_groups[$k]);
+      }
+
+      // Put the stat onto the $prefs array.
+      foreach ( $prefs_groups[$k] as $v ){
+        array_push($prefs, $v);
+      }
+    }
+
+    // Finally! $prefs is a sorted high to low of stats.
+    // Assign highest stat rolls to highest preferences, 
+    //  each in turn.
+    // This way, if there are adjustments required for minimums,
+    //  the most minimial change should be done.
+    foreach ( $prefs as $p ){
+      $this->stats[$p] = array_pop($this->rolls);
     }
   }
 

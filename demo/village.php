@@ -10,10 +10,9 @@
 //  1. Run via CLI:   php vilage.php
 //
 
-require '../lib/prefs.php';
-require '../lib/mins.php';
-require '../lib/character.php';
-require '../lib/names.php';
+require 'lib/mins.php';
+require 'lib/character.php';
+require 'lib/names.php';
 
 // Main
 $mode = 'short';
@@ -28,9 +27,7 @@ foreach ( $jobs as $job){
   $gender     = $genders[array_rand($genders)];
   $name_list  = $names[$race][$gender];
   $name       = $name_list[array_rand($name_list)];
-  $character  = new Character($class, $prefs, $mins, $race, $gender, $name);
+  $character  = new Character($class, $mins, $race, $gender, $name);
   $character->print_character($mode);
   echo "\n";
 }
-?>
-

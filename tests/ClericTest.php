@@ -3,7 +3,6 @@
 // ClericTest.php
 
 require_once dirname(__DIR__) . '/lib/character.php';
-require_once dirname(__DIR__) . '/lib/prefs.php';
 require_once dirname(__DIR__) . '/lib/mins.php';
 
 use PHPUnit\Framework\TestCase;
@@ -12,14 +11,13 @@ final class ClericTest extends TestCase
 {
   public function testCanBeCreated(): void
   {
-    require dirname(__DIR__) . '/lib/prefs.php';
     require dirname(__DIR__) . '/lib/mins.php';
     $class      = "cleric";
     $mode       = 'short';  // $mode can currently be 'full' or 'short'
     $name       = "Sally";
     $race       = 'human';
     $gender     = 'female';
-    $character  = new Character($class, $prefs, $mins, $race, $gender, $name);
+    $character  = new Character($class, $mins, $race, $gender, $name);
 
     $this->assertInstanceOf(Character::class, $character);
   }
@@ -27,14 +25,13 @@ final class ClericTest extends TestCase
 
   public function testSetAttributes(): void
   {
-    require dirname(__DIR__) . '/lib/prefs.php';
     require dirname(__DIR__) . '/lib/mins.php';
     $class      = "cleric";
     $mode       = 'short';  // $mode can currently be 'full' or 'short'
     $name       = "Sally";
     $race       = 'human';
     $gender     = 'female';
-    $character  = new Character($class, $prefs, $mins, $race, $gender, $name);
+    $character  = new Character($class, $mins, $race, $gender, $name);
 
     $this->assertEquals('Sally',    $character->name);
     $this->assertEquals('cleric',   $character->class);
@@ -44,25 +41,21 @@ final class ClericTest extends TestCase
 
   public function testSetClericStats(): void
   {
-    require dirname(__DIR__) . '/lib/prefs.php';
     require dirname(__DIR__) . '/lib/mins.php';
     $class      = "cleric";
     $mode       = 'short';  // $mode can currently be 'full' or 'short'
     $name       = "Sally";
     $race       = 'human';
     $gender     = 'female';
-    $character  = new Character($class, $prefs, $mins, $race, $gender, $name);
+    $character  = new Character($class, $mins, $race, $gender, $name);
     
-    $this->assertGreaterThan(5,   $character->stats['Strength']);
-    $this->assertGreaterThan(5,   $character->stats['Intelligence']);
-    $this->assertGreaterThan(8,   $character->stats['Wisdom']);
-    $this->assertGreaterThan(2,   $character->stats['Dexterity']);
-    $this->assertGreaterThan(5,   $character->stats['Constitution']);
-    $this->assertGreaterThan(5,   $character->stats['Charisma']);
+    $this->assertGreaterThan(5,   $character->stats['strength']);
+    $this->assertGreaterThan(5,   $character->stats['intelligence']);
+    $this->assertGreaterThan(8,   $character->stats['wisdom']);
+    $this->assertGreaterThan(2,   $character->stats['dexterity']);
+    $this->assertGreaterThan(5,   $character->stats['constitution']);
+    $this->assertGreaterThan(5,   $character->stats['charisma']);
   }
 
 
 }
-
-?>
-

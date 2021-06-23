@@ -5,7 +5,6 @@
 <!-- <img src="images/background3.jpg"> -->
 
 <?php
-  require 'lib/prefs.php';
   require 'lib/mins.php';
   require 'lib/names.php';
   require 'lib/character.php';
@@ -18,7 +17,7 @@
     $race       = $_POST['race'];
     $name_list  = $names[$race][$gender];
     $name       = $name_list[array_rand($name_list)];
-    $character  = new Character($class, $prefs, $mins, $race, $gender, $name);
+    $character  = new Character($class, $mins, $race, $gender, $name);
     $character->print_character($mode);
 
     echo "<hr>";

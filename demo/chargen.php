@@ -12,19 +12,18 @@
 
 
 // Data structures
-require 'prefs.php';
-require 'mins.php';
-require 'character.php';
+require 'lib/mins.php';
+require 'lib/character.php';
 
  
 // Main
 
-$class      = "Paladin";
-$mode       = 'short';  // $mode can currently be 'full' or 'short'
+$class      = "paladin";
+$mode       = 'full';  // $mode can currently be 'full' or 'short'
 $name       = "Sally";
 $race       = 'human';
 $gender     = 'female';
-$character  = new Character($class, $prefs, $mins, $race, $gender, $name);
+$character  = new Character($class, $mins, $race, $gender, $name);
 $character->print_character($mode);
 
 ?>
