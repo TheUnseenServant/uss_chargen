@@ -13,11 +13,10 @@ final class ThiefTest extends TestCase
   {
     require dirname(__DIR__) . '/lib/mins.php';
     $class      = "thief";
-    $mode       = 'short';  // $mode can currently be 'full' or 'short'
-    $name       = "Sally";
     $race       = 'human';
     $gender     = 'female';
-    $character  = new Character($class, $mins, $race, $gender, $name);
+    $alignment  = 'ne';
+    $character  = new Character($class, $mins, $race, $gender, $alignment);
 
     $this->assertInstanceOf(Character::class, $character);
   }
@@ -27,13 +26,11 @@ final class ThiefTest extends TestCase
   {
     require dirname(__DIR__) . '/lib/mins.php';
     $class      = "thief";
-    $mode       = 'short';  // $mode can currently be 'full' or 'short'
-    $name       = "Sally";
     $race       = 'human';
     $gender     = 'female';
-    $character  = new Character($class, $mins, $race, $gender, $name);
+    $alignment  = 'ne';
+    $character  = new Character($class, $mins, $race, $gender, $alignment);
 
-    $this->assertEquals('Sally',    $character->name);
     $this->assertEquals('thief',    $character->class);
     $this->assertEquals('human',    $character->race);
     $this->assertEquals('female',   $character->gender);
@@ -43,18 +40,17 @@ final class ThiefTest extends TestCase
   {
     require dirname(__DIR__) . '/lib/mins.php';
     $class      = "thief";
-    $mode       = 'short';  // $mode can currently be 'full' or 'short'
-    $name       = "Sally";
     $race       = 'human';
     $gender     = 'female';
-    $character  = new Character($class, $mins, $race, $gender, $name);
+    $alignment  = 'ne';
+    $character  = new Character($class, $mins, $race, $gender, $alignment);
     
     $this->assertGreaterThan(6,   $character->stats['strength']);
     $this->assertGreaterThan(6,   $character->stats['intelligence']);
     $this->assertGreaterThan(3,   $character->stats['wisdom']);
     $this->assertGreaterThan(9,   $character->stats['dexterity']);
     $this->assertGreaterThan(6,   $character->stats['constitution']);
-    $this->assertGreaterThan(6,   $character->stats['charisma']);
+    $this->assertGreaterThan(5,   $character->stats['charisma']);
   }
 
 }

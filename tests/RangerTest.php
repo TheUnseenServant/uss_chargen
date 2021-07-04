@@ -13,11 +13,10 @@ final class RangerTest extends TestCase
   {
     require dirname(__DIR__) . '/lib/mins.php';
     $class      = "ranger";
-    $mode       = 'short';  // $mode can currently be 'full' or 'short'
-    $name       = "Sally";
     $race       = 'human';
     $gender     = 'female';
-    $character  = new Character($class, $mins, $race, $gender, $name);
+    $alignment  = 'ng';
+    $character  = new Character($class, $mins, $race, $gender, $alignment);
 
     $this->assertInstanceOf(Character::class, $character);
   }
@@ -27,13 +26,11 @@ final class RangerTest extends TestCase
   {
     require dirname(__DIR__) . '/lib/mins.php';
     $class      = "ranger";
-    $mode       = 'short';  // $mode can currently be 'full' or 'short'
-    $name       = "Sally";
     $race       = 'human';
     $gender     = 'female';
-    $character  = new Character($class, $mins, $race, $gender, $name);
+    $alignment  = 'ng';
+    $character  = new Character($class, $mins, $race, $gender, $alignment);
 
-    $this->assertEquals('Sally',    $character->name);
     $this->assertEquals('ranger',   $character->class);
     $this->assertEquals('human',    $character->race);
     $this->assertEquals('female',   $character->gender);
@@ -43,11 +40,10 @@ final class RangerTest extends TestCase
   {
     require dirname(__DIR__) . '/lib/mins.php';
     $class      = "ranger";
-    $mode       = 'short';  // $mode can currently be 'full' or 'short'
-    $name       = "Sally";
     $race       = 'human';
     $gender     = 'female';
-    $character  = new Character($class, $mins, $race, $gender, $name);
+    $alignment  = 'ng';
+    $character  = new Character($class, $mins, $race, $gender, $alignment);
     
     $this->assertGreaterThan(12,   $character->stats['strength']);
     $this->assertGreaterThan(12,   $character->stats['intelligence']);

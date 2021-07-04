@@ -11,11 +11,10 @@ final class CharacterTest extends TestCase
   {
     require dirname(__DIR__) . '/lib/mins.php';
     $class      = "paladin";
-    $mode       = 'short';  // $mode can currently be 'full' or 'short'
-    $name       = "Sally";
     $race       = 'human';
     $gender     = 'female';
-    $character  = new Character($class, $mins, $race, $gender, $name);
+    $alignment  = 'lg';
+    $character  = new Character($class, $mins, $race, $gender, $alignment);
 
     $this->assertInstanceOf(Character::class, $character);
   }
@@ -25,13 +24,11 @@ final class CharacterTest extends TestCase
   {
     require dirname(__DIR__) . '/lib/mins.php';
     $class      = "paladin";
-    $mode       = 'short';  // $mode can currently be 'full' or 'short'
-    $name       = "Sally";
     $race       = 'human';
     $gender     = 'female';
-    $character  = new Character($class, $mins, $race, $gender, $name);
+    $alignment  = 'lg';
+    $character  = new Character($class, $mins, $race, $gender, $alignment);
 
-    $this->assertEquals('Sally',    $character->name);
     $this->assertEquals('paladin',  $character->class);
     $this->assertEquals('human',    $character->race);
     $this->assertEquals('female',   $character->gender);

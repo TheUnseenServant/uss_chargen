@@ -11,15 +11,17 @@
 
 class Character {
 
-  function __construct($class, $mins, $race, $gender, $name){
-    $this->class  = $class;
-    $this->mins   = $mins;
-    $this->race   = $race;
-    $this->gender = $gender;
-    $this->name   = $name;
+  function __construct( $class, $mins, $race, $gender, $alignment ){
+    $this->class      = $class;
+    $this->mins       = $mins;
+    $this->race       = $race;
+    $this->gender     = $gender;
+    $this->alignment  = $alignment;
+    $this->gen_name();
     $this->gen_stats();
     $this->arrange_for_class();
     $this->minimums_for_class();
+    $this->validate_alignment();
     $this->finish_stat_assignment();
   }
 
@@ -27,6 +29,22 @@ class Character {
     "dexterity" => 0, "constitution" => 0, "charisma" => 0);
   var $rolls;
   var $class;
+
+  function gen_name(){
+    require 'names.php';
+    $name_list  = $names[$this->race][$this->gender];
+    $this->name       = $name_list[array_rand($name_list)];
+  }
+
+  function validate_alignment(){
+    require 'alignment.php';
+    if ( ! isset($alignments[$this->class] )){
+      $this->alignment = 'tn';
+    } elseif ( ! in_array($this->alignment, $alignments[$this->class] ) ){
+      $this->alignment = $alignments[$this->class][array_rand($alignments[$this->class])];
+    }
+
+  }
 
   function gen_stats(){
     // Generate a set of six 3d6 rolls.
@@ -39,22 +57,20 @@ class Character {
     sort($this->rolls);
   }
 
-  function print_character($mode = 'full'){
+  function print_character(){
     // The end product.   
-    $newline = "\n";
-    if ( $mode == 'short' ){
-      $spacer   = "   ";
-    } elseif ( $mode == 'full' ){
-      $spacer   = "\n";
-    }
+    $newline  = "\n";
+    $break    = "<br>";
     $_class   = ucfirst($this->class);
     $_race    = ucfirst($this->race);
     $_gender  = ucfirst($this->gender); 
-    echo "$this->name, $_race $_gender $_class $newline"; 
+    $_align   = strtoupper($this->alignment);
+    
+    echo "$this->name $break $_race $_gender $_align $_class $break"; 
     foreach ( $this->stats as $s => $s_value ){
-      echo ucfirst($s) . ":  " . $s_value . $spacer;
+      echo $break . "<b>" . ucfirst($s) . "</b>    " . $s_value ;
     }
-    echo $newline;
+    echo $break;
   }
 
   function arrange_for_class(){
