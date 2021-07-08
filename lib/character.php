@@ -20,6 +20,7 @@ class Character {
     $this->gen_name();
     $this->gen_stats();
     $this->arrange_for_class();
+    $this->racial_mods();
     $this->minimums_for_class();
     $this->validate_alignment();
     $this->finish_stat_assignment();
@@ -34,6 +35,17 @@ class Character {
     require 'names.php';
     $name_list  = $names[$this->race][$this->gender];
     $this->name       = $name_list[array_rand($name_list)];
+  }
+
+  function racial_mods(){
+    require 'racial.php';
+    if ( isset( $racial[$this->race] )){
+      foreach ( $this->stats as $s => $s_value ){
+        if ( isset( $racial[$this->race][$s] )){
+          $this->stats[$s] += $racial[$this->race][$s];
+        }
+      }
+    }
   }
 
   function validate_alignment(){
@@ -124,6 +136,11 @@ class Character {
     //  the most minimial change should be done.
     foreach ( $prefs as $p ){
       $this->stats[$p] = array_pop($this->rolls);
+    }
+    foreach ( array_keys($this->stats) as $s ){
+      if ( $this->stats[$s] == 0 ){
+        $this->stats[$s] = array_pop($this->rolls);
+      }
     }
   }
 

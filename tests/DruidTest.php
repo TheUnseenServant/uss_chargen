@@ -45,12 +45,12 @@ final class DruidTest extends TestCase
     $alignment  = "tn";
     $character  = new Character($class, $mins, $race, $gender, $alignment);
     
-    $this->assertGreaterThan(5,   $character->stats['strength']);
-    $this->assertGreaterThan(5,   $character->stats['intelligence']);
-    $this->assertGreaterThan(11,  $character->stats['wisdom']);
-    $this->assertGreaterThan(5,   $character->stats['dexterity']);
-    $this->assertGreaterThan(5,   $character->stats['constitution']);
-    $this->assertGreaterThan(14,  $character->stats['charisma']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['strength']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['intelligence']);
+    $this->assertGreaterThanOrEqual(12,  $character->stats['wisdom']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['dexterity']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['constitution']);
+    $this->assertGreaterThanOrEqual(15,  $character->stats['charisma']);
   }
 
 

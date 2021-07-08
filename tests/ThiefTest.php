@@ -45,12 +45,11 @@ final class ThiefTest extends TestCase
     $alignment  = 'ne';
     $character  = new Character($class, $mins, $race, $gender, $alignment);
     
-    $this->assertGreaterThan(6,   $character->stats['strength']);
-    $this->assertGreaterThan(6,   $character->stats['intelligence']);
-    $this->assertGreaterThan(3,   $character->stats['wisdom']);
-    $this->assertGreaterThan(9,   $character->stats['dexterity']);
-    $this->assertGreaterThan(6,   $character->stats['constitution']);
-    $this->assertGreaterThan(5,   $character->stats['charisma']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['strength']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['intelligence']);
+    $this->assertGreaterThanOrEqual(9,   $character->stats['dexterity']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['constitution']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['charisma']);
   }
 
 }

@@ -45,12 +45,12 @@ final class FighterTest extends TestCase
     $alignment  = 'ng';
     $character  = new Character($class, $mins, $race, $gender, $alignment);
     
-    $this->assertGreaterThan(8,   $character->stats['strength']);
-    $this->assertGreaterThan(2,   $character->stats['intelligence']);
-    $this->assertGreaterThan(5,   $character->stats['wisdom']);
-    $this->assertGreaterThan(5,   $character->stats['dexterity']);
-    $this->assertGreaterThan(6,   $character->stats['constitution']);
-    $this->assertGreaterThan(5,   $character->stats['charisma']);
+    $this->assertGreaterThanOrEqual(9,   $character->stats['strength']);
+    $this->assertGreaterThanOrEqual(3,   $character->stats['intelligence']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['wisdom']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['dexterity']);
+    $this->assertGreaterThanOrEqual(7,   $character->stats['constitution']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['charisma']);
   }
 
 

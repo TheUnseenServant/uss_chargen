@@ -45,12 +45,12 @@ final class ClericTest extends TestCase
     $alignment  = 'cg';
     $character  = new Character($class, $mins, $race, $gender, $alignment);
     
-    $this->assertGreaterThan(5,   $character->stats['strength']);
-    $this->assertGreaterThan(5,   $character->stats['intelligence']);
-    $this->assertGreaterThan(8,   $character->stats['wisdom']);
-    $this->assertGreaterThan(2,   $character->stats['dexterity']);
-    $this->assertGreaterThan(5,   $character->stats['constitution']);
-    $this->assertGreaterThan(5,   $character->stats['charisma']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['strength']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['intelligence']);
+    $this->assertGreaterThanOrEqual(9,   $character->stats['wisdom']);
+    $this->assertGreaterThanOrEqual(3,   $character->stats['dexterity']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['constitution']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['charisma']);
   }
 
 

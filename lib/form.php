@@ -42,8 +42,26 @@
     <h3>Race</h3>
     <input type="radio" id="human" name="race" value="human" checked="checked">
     <label for="human">Human</label><br>
+
     <input type="radio" id="dwarf" name="race" value="dwarf">
     <label for="dwarf">Dwarf</label><br>
+      
+    <input type="radio" id="elf" name="race" value="elf">
+    <label for="elf">Elf</label><br>
+      
+    <input type="radio" id="gnome" name="race" value="gnome">
+    <label for="gnome">Gnome</label><br>
+      
+    <input type="radio" id="half-elf" name="race" value="half-elf">
+    <label for="half-elf">Half Elf</label><br>
+
+    <input type="radio" id="halfling" name="race" value="halfling">
+    <label for="halfling">Halfling</label><br>
+      
+    <input type="radio" id="half-orc" name="race" value="half-orc">
+    <label for="half-orc">Half Orc</label><br>
+    
+      
       
     <h3>Gender</h3> 
     <input type="radio" id="male" name="gender" value="male" checked="checked">

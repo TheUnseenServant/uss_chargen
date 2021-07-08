@@ -12,9 +12,9 @@
     "ranger"   => array("wisdom" => 14, "constitution" => 14, "strength" => 13, "intelligence" => 13, "dexterity" => 6, "charisma" => 6),
 
     "magicuser"    => array("intelligence" => 9, "wisdom" => 6, "strength" => 6, "charisma" => 6, "dexterity" => 6, "constitution" => 6),
-    "illusionist"    => array("dexterity" => 16, "intelligence" => 15, "strength" => 6, "wisdom" => 6, "charisma" => 6, "constitution" => 3),
+    "illusionist"    => array("dexterity" => 16, "intelligence" => 15, "strength" => 6, "wisdom" => 6, "charisma" => 6),
 
-    "thief"   => array("dexterity" => 9, "strength" => 6, "intelligence" => 6, "constitution" => 6, "charisma" => 6, "wisdom" => 3),
+    "thief"   => array("dexterity" => 9, "strength" => 6, "intelligence" => 6, "constitution" => 6, "charisma" => 6),
     "assassin"   => array("dexterity" => 12, "strength" => 12, "intelligence" => 11, "constitution" => 6, "wisdom" => 6),
   );
 ?>

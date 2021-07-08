@@ -45,12 +45,11 @@ final class AssassinTest extends TestCase
     $alignment  = 'le';
     $character  = new Character($class, $mins, $race, $gender, $alignment);
     
-    $this->assertGreaterThan(11,  $character->stats['strength']);
-    $this->assertGreaterThan(10,  $character->stats['intelligence']);
-    $this->assertGreaterThan(5,   $character->stats['wisdom']);
-    $this->assertGreaterThan(11,  $character->stats['dexterity']);
-    $this->assertGreaterThan(5,   $character->stats['constitution']);
-    $this->assertGreaterThan(2,   $character->stats['charisma']);
+    $this->assertGreaterThanOrEqual(12,  $character->stats['strength']);
+    $this->assertGreaterThanOrEqual(11,  $character->stats['intelligence']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['wisdom']);
+    $this->assertGreaterThanOrEqual(12,  $character->stats['dexterity']);
+    $this->assertGreaterThanOrEqual(6,   $character->stats['constitution']);
   }
 
 
